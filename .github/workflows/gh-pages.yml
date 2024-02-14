@@ -9,8 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      #- name: Checkout
-      #  uses: actions/checkout@v0
+      - name: Checkout
+       uses: actions/checkout@master
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy
         if: success()
-        uses: rajesh-sacumen/travis-demo@v0
+        uses: rajesh-sacumen/travis-demo@master
         with:
           github_token: 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
           publish_dir: dist/travis-demo

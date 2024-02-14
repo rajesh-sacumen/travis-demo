@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: travis-demo/checkout@master
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: travis-demo/setup-node@v2
         with:
           node-version: v@2
 

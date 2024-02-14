@@ -30,6 +30,6 @@ jobs:
         if: success()
         uses: rajesh-sacumen/travis-demo@v0
         with:
-          github_token: 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
+          github_token: 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
           publish_dir: dist/travis-demo
           enable_jekyll: true

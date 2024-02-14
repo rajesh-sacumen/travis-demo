@@ -1,0 +1,35 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v18
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    #- name: Run tests
+    #  run: npm run test:headless
+
+    - name: Build
+      run: npm run build:prod
+
+    - name: Deploy
+      if: success()
+      uses: rajesh-sacumen/travis-demo@v0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dist/travis-demo
+        enable_jekyll: true
